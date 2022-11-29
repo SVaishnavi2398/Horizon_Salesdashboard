@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Halfyearincentive;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class HalfyearincentiveController extends Controller
 {
@@ -21,7 +22,7 @@ class HalfyearincentiveController extends Controller
 		return response()->json($Halfyearincentive);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $newHalfyearincentive = new Halfyearincentive([
 			'halfsoucring_no' => $request->get('halfsoucring_no'),

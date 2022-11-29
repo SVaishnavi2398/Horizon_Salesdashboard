@@ -4,7 +4,8 @@ namespace App\Http\Controllers\API;
 use App\Models\EmpStatus;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class EmpStatusController extends Controller
 {

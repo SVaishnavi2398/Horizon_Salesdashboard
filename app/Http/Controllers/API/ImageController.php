@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\API;
 use App\Models\Image;
-use DB;
+use App\Models\EmpStatus;
+
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -19,7 +22,7 @@ class ImageController extends Controller
        return response()->json($image);
     }
 
-    public function create(){
+    public function create(Request $request){
         $newImage = new Image([
           'user_id' => $request->get('user_id'),
         'doc1' => $request->get('doc1'),
@@ -108,10 +111,10 @@ class ImageController extends Controller
     */
   public function update(Request $request, $doc_id)
   {
-    $image = Image::findOrFail($emp_doc_id);
-    $image = Image::find($emp_doc_id);
+    $image = Image::findOrFail($doc_id);
+    $image = Image::find($doc_id);
     $image->update($request->all());
-    return $doc1;
+    return $image;
 
     
   }

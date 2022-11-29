@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\QuarterlyIncentive;
-use DB;
+// //use DB   use Illuminate\Support\Facades\DB;;
+use Illuminate\Support\Facades\DB;
 
 class QuarterlyIncentiveController extends Controller
 {
@@ -21,7 +22,7 @@ class QuarterlyIncentiveController extends Controller
 		return response()->json($QuarterlyIncentive);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $newQuarterlyIncentive = new QuarterlyIncentive([
 			'soucring_no' => $request->get('soucring_no'),

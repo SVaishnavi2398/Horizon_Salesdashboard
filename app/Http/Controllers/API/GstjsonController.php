@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gstjson;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class GstjsonController extends Controller
 {
@@ -16,7 +17,7 @@ class GstjsonController extends Controller
       
        
     }
-    public function create()
+    public function create(Request $request)
     {
         $newGstjson = new Gstjson([
 			      'ctin' => $request->get('ctin'),

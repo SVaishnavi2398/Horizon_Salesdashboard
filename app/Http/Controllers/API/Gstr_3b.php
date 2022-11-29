@@ -5,7 +5,12 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gstr3b;
-use DB;
+use App\Models\Gstjson;
+
+//use DB   
+use Illuminate\Support\Facades\DB;
+use App\Models\Groups;
+
 
 class Gstr_3b extends Controller
 {
@@ -20,7 +25,7 @@ class Gstr_3b extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newGroups = new Groups([
 			'slug' => $request->get('slug'),

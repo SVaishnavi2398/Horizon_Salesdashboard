@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -29,7 +30,7 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newInvoice = new Invoice([
 			
@@ -226,10 +227,12 @@ class InvoiceController extends Controller
         return $data;
     }
     public function getclientid($id){
+        // dd($id);
+        // return $id;
         $data=DB::table('salesdetails')
         ->join('clientdetails','clientdetails.client_id','=','salesdetails.client_id')
         ->select('clientdetails.client_id','clientdetails.name','salesdetails.sales_id')
-        ->where('salesdetails.debtor_company_det_id',$id)
+        ->where('salesdetails.sales_id',$id)
         ->get();
         return response()->json($data);
     }

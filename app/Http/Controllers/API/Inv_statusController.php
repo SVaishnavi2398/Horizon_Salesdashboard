@@ -23,7 +23,7 @@ class Inv_statusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newInv_status = new Inv_status([
 			

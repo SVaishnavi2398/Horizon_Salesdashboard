@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Projectallocations;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class ProjectallocationsController extends Controller
 {
@@ -25,7 +26,7 @@ class ProjectallocationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newRoles = new Projectallocations([
 			'user_id' => $request->get('user_id'),

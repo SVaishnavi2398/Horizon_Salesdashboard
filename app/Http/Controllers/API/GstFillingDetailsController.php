@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\API;
 use App\Models\GstFillingDetails;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class GstFillingDetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newGstfillingdetails = new Gstfillingdetails([
 			

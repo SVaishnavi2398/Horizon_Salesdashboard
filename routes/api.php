@@ -59,7 +59,7 @@ use App\Http\Controllers\API\GstFillingDetailsController;
 use App\Http\Controllers\API\InvoiceMultiController;
 use App\Http\Controllers\API\InvoicedetidsController;
 use App\Http\Controllers\API\DealdetailsController;
-
+use App\Http\Controllers\API\InvoicecommentsController;
 
 /////////// GST R1 //////////////////
 
@@ -73,6 +73,9 @@ use App\Http\Controllers\API\IncentiveController;
 use App\Http\Controllers\API\IncentiverangeController;
 use App\Http\Controllers\API\TdsRatecontroller;
 use App\Http\Controllers\API\WalkindealsController;
+
+use App\Http\Controllers\API\LeadsgivenController;
+use App\Http\Controllers\API\WeeklyleadsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -143,6 +146,8 @@ Route::apiResource('sales_documents', SalesdocumentsController::class);
 
 Route::apiResource('sales_comments', SalescommentsController::class);
 
+Route::apiResource('invoice_comments', InvoicecommentsController::class);
+
 Route::apiResource('emp_documents', ImageController::class);
 
 Route::apiResource('reports', ReportsController::class);
@@ -203,6 +208,10 @@ Route::apiResource('year_incentive', YearIncentiveController::class);
 Route::apiResource('Walkindeals', WalkindealsController::class);
 
 
+Route::apiResource('leadsgiven', LeadsgivenController::class);
+Route::apiResource('weeklyleads', WeeklyleadsController::class);
+
+
 Route::group([
 
     'middleware' => 'api',
@@ -245,6 +254,7 @@ Route::group([
     Route::post('/updateCreate', [App\Http\Controllers\API\GstjsonController::class,'updateCreate'])->name('updateCreate');
    
     // GSR2A AND B2B iNVOICE API
+    // Route::post('/invoice_comments', [App\Http\Controllers\API\InvoiceController::class,'invoice_comments'])->name('invoice_comments');
     Route::post('/uploadgstr2a', [App\Http\Controllers\API\Gstr2aController::class,'uploadgstr2a'])->name('uploadgstr2a');
     Route::post('/updateCreate2A', [App\Http\Controllers\API\Gstr2aController::class,'updateCreate2A'])->name('updateCreate2A');
     Route::post('/updateCreateB2B', [App\Http\Controllers\API\B2binvoiceController::class,'updateCreateB2B'])->name('updateCreateB2B');
@@ -252,6 +262,7 @@ Route::group([
     Route::get('/b2bmonthj', [App\Http\Controllers\API\Gstr2aController::class,'b2bmonthj'])->name('b2bmonthj');
     Route::get('/invoicegstr2a/{id}', [App\Http\Controllers\API\Gstr2aController::class,'invoicegstr2a'])->name('invoicegstr2a');
     Route::get('/showId/{id}', [App\Http\Controllers\API\B2binvoiceController::class,'showId'])->name('showId');
+    // Route::post('/invoice_comments', [App\Http\Controllers\API\InvoicecommentsController::class,'invoice_comments'])->name('invoice_comments');
 
 
     // GSR3B AAPI
@@ -380,6 +391,27 @@ Route::group([
    Route::get('/EmpData', [App\Http\Controllers\API\Salary\MonthlySalary1Controller::class,'EmpData'])->name('EmpData');
    Route::get ('/reportdata1/{user_id}', [App\Http\Controllers\API\Salary\MonthlySalary1Controller::class,'reportdata1'])->name('reportdata1');
    Route::get ('/dataUser1/{id}', [App\Http\Controllers\API\Salary\AdvanceemiController::class,'dataUser1'])->name('dataUser1');
+  
+
+
+
+   Route::get('/leadsgivenview', [App\Http\Controllers\API\LeadsgivenController::class,'leadsgivenview'])->name('leadsgivenview');
+    Route::get('/weeklyleadsview', [App\Http\Controllers\API\WeeklyleadsController::class,'weeklyleadsview'])->name('weeklyleadsview');
+    Route::get('/getempdetails/{id}', [App\Http\Controllers\API\LeadsgivenController::class,'getempdetails'])->name('getempdetails');
+    Route::get('/singleemp/{id}', [App\Http\Controllers\API\LeadsgivenController::class,'singleemp'])->name('singleemp');
+    Route::get('/single_emp/{id}', [App\Http\Controllers\API\LeadsgivenController::class,'single_emp'])->name('single_emp');
+    Route::post('/datesorting', [App\Http\Controllers\API\LeadsgivenController::class,'datesorting'])->name('datesorting');
+    Route::get('/teamwise/{id}', [App\Http\Controllers\API\LeadsgivenController::class,'teamwise'])->name('teamwise');
+    Route::get('/leadsteams/{id}', [App\Http\Controllers\API\LeadsgivenController::class,'leadsteams'])->name('leadsteams');
+    Route::get('/allteamsdata/{id}', [App\Http\Controllers\API\LeadsgivenController::class,'allteamsdata'])->name('allteamsdata');
+    Route::get('/single_emp_data/{id}', [App\Http\Controllers\API\LeadsgivenController::class,'single_emp_data'])->name('single_emp_data');
+    Route::get('/single_employee/{id}', [App\Http\Controllers\API\WeeklyleadsController::class,'single_employee'])->name('single_employee');
+    Route::get('/weeklyteams/{id}', [App\Http\Controllers\API\WeeklyleadsController::class,'weeklyteams'])->name('weeklyteams');
+    Route::get('/single_emp_weekly/{id}', [App\Http\Controllers\API\WeeklyleadsController::class,'single_emp_weekly'])->name('single_emp_weekly');
+    Route::get('/allleadsdata/{id}', [App\Http\Controllers\API\WeeklyleadsController::class,'allleadsdata'])->name('allleadsdata');
+    Route::post('/dateformating', [App\Http\Controllers\API\WeeklyleadsController::class,'dateformating'])->name('dateformating');
+    Route::post('/weekwise', [App\Http\Controllers\API\WeeklyleadsController::class,'weekwise'])->name('weekwise');
+    Route::post('/weekdata', [App\Http\Controllers\API\WeeklyleadsController::class,'weekdata'])->name('weekdata');
   });
 
 

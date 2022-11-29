@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Walkindeals;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class WalkindealsController extends Controller
 {
@@ -20,7 +21,7 @@ class WalkindealsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //$WalkindealsData = $Walkindeals->getWalkindeals($request->email);
 

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
+// //use DB   
+use Illuminate\Support\Facades\DB;
 use App\Models\Attendance;
 
 class AttendanceController extends Controller
@@ -25,7 +26,7 @@ class AttendanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $attendance = new Attendance([
             'emp_code' => $request->get('emp_code'),

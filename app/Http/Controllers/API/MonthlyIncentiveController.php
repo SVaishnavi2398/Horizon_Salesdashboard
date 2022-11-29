@@ -16,7 +16,7 @@ class MonthlyIncentiveController extends Controller
     // public function index()
     // {
     //     $MonthlyIncentive = MonthlyIncentive::all();
-	// 	return response()->json($MonthlyIncentive);
+    //  return response()->json($MonthlyIncentive);
     // }
 
     public function index(){
@@ -26,7 +26,7 @@ class MonthlyIncentiveController extends Controller
                         ->join('users', 'users.user_id', '=', 'tbl_monthly_incentive.user_id')
                         ->select('users.firstname','users.middlename','users.lastname', 'tbl_monthly_incentive.*')
                         ->get();
-		return response()->json($MonthlyIncentive);
+        return response()->json($MonthlyIncentive);
     }
 
     /**
@@ -37,8 +37,8 @@ class MonthlyIncentiveController extends Controller
     public function create()
     {
         $newMonthlyIncentive = new MonthlyIncentive([
-			// 'ince_id' => $request->get('ince_id'),
-			'user_id' =>  $request->get('user_id'),
+            // 'ince_id' => $request->get('ince_id'),
+            'user_id' =>  $request->get('user_id'),
             'ince_freq' =>  $request->get('ince_freq'),
             'from_date' =>  $request->get('from_date'),
             'to_date' =>  $request->get('to_date'),
@@ -59,9 +59,9 @@ class MonthlyIncentiveController extends Controller
             'business_value'  =>  $request->get('business_value'),
             'ince_status'  =>  $request->get('ince_status'),
             'created_at' => $request->get('created_at'),
-			'updated_at' => $request->get('updated_at')
+            'updated_at' => $request->get('updated_at')
             
-		]);
+        ]);
     } 
 
     /**
@@ -95,11 +95,11 @@ class MonthlyIncentiveController extends Controller
                 'eligibility_bonus'  =>  '',
                 'business_value' => '',
                 'ince_status' => '',
-		]);
+        ]);
 
 
-		$newMonthlyIncentive = new MonthlyIncentive([
-			
+        $newMonthlyIncentive = new MonthlyIncentive([
+            
             'user_id' =>  $request->get('user_id'),
             'ince_freq' =>  $request->get('ince_freq'),
             'from_date' =>  $request->get('from_date'),
@@ -120,11 +120,11 @@ class MonthlyIncentiveController extends Controller
             'business_value'  =>  $request->get('business_value'),
             'ince_status'  =>  $request->get('ince_status'),
             'eligibility_bonus'  =>  $request->get('eligibility_bonus')
-		]);
+        ]);
 
-		$newMonthlyIncentive->save();
+        $newMonthlyIncentive->save();
 
-		return response()->json($newMonthlyIncentive);
+        return response()->json($newMonthlyIncentive);
     }
 
     /**
@@ -136,15 +136,15 @@ class MonthlyIncentiveController extends Controller
     // public function show($id)
     // {
     //     $MonthlyIncentive = MonthlyIncentive::findOrFail($id);
-	// 	return response()->json($MonthlyIncentive);
+    //  return response()->json($MonthlyIncentive);
     // }
     public function show($user_id)
     {
         // $MonthlyIncentive = MonthlyIncentive::findOrFail($ince_id);
-		// return response()->json($MonthlyIncentive);
+        // return response()->json($MonthlyIncentive);
 
         $MonthlyIncentive =  DB::table('tbl_monthly_incentive')->whereIn('user_id', [$user_id])->get();
-		return response()->json($MonthlyIncentive);
+        return response()->json($MonthlyIncentive);
     }
     
     /**
@@ -170,8 +170,8 @@ class MonthlyIncentiveController extends Controller
     {
 
         $MonthlyIncentive = MonthlyIncentive::findOrFail($ince_id);
-		
-		$MonthlyIncentive = MonthlyIncentive::find($ince_id);
+        
+        $MonthlyIncentive = MonthlyIncentive::find($ince_id);
         $MonthlyIncentive->update($request->all());
         return $MonthlyIncentive;
         
@@ -265,9 +265,9 @@ class MonthlyIncentiveController extends Controller
     public function destroy($id)
     {
         $MonthlyIncentive = MonthlyIncentive::findOrFail($id);
-		$MonthlyIncentive->delete();
+        $MonthlyIncentive->delete();
 
-		return response()->json($MonthlyIncentive::all());
+        return response()->json($MonthlyIncentive::all());
     }
     // public function monthlyinceData($id)
     // {
@@ -384,6 +384,7 @@ class MonthlyIncentiveController extends Controller
         for($i=0; $i<count($cv_data); $i++){
             $cvData[] = $cv_data[$i]->cv_range;
          }
+         $rang_data = [];
          for($i=0; $i<count($cv_data); $i++){
             $rang_data[] = DB::table('tbl_incentives')
             ->select($cv_data[$i]->cv_range)
@@ -435,6 +436,8 @@ class MonthlyIncentiveController extends Controller
         $data2 = response()->json($data);
         $cv_data = $data2->getData();
 
+
+         $rang_data= [];
         for($i=0; $i<count($cv_data); $i++){
             $rang_data[] = DB::table('tbl_incentives')
             ->select($cv_data[$i]->cv_range)

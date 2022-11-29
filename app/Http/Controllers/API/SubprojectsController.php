@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\API;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subprojects;
@@ -26,7 +27,7 @@ class SubprojectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newSubprojects = new Subprojects([
 			'project_id' => $request->get('project_id'),

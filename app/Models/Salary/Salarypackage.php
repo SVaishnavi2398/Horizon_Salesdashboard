@@ -4,7 +4,7 @@ namespace App\Models\Salary;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use DB;
+//use DB   use Illuminate\Support\Facades\DB;;
 
 class Salarypackage extends Model
 {

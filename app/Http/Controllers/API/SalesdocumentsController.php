@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\API;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Salesdocuments;
@@ -26,7 +27,7 @@ class SalesdocumentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         // $files = $request->file('files');
         // $uploadPath = "public/image";

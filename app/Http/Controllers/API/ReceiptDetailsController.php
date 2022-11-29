@@ -4,7 +4,8 @@ namespace App\Http\Controllers\API;
 use App\Models\ReceiptDetails;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class ReceiptDetailsController extends Controller
 {
@@ -32,7 +33,7 @@ class ReceiptDetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newReceiptdetails = new Receiptdetails([
 			

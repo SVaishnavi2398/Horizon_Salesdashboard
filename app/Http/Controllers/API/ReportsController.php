@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\API;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Reports;
@@ -51,7 +52,7 @@ class ReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newReports = new Reports([
 			    'report_name' => $request->get('report_name'),

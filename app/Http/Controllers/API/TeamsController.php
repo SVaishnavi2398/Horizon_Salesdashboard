@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Teams;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class TeamsController extends Controller
 {
@@ -22,7 +23,7 @@ class TeamsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newTeams = new Teams([
 			//'slug' => $request->get('slug'),

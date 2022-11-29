@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gstr2a;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class Gstr2aController extends Controller
 {
@@ -15,7 +16,7 @@ class Gstr2aController extends Controller
     return response()->json($newgstr2a);
        
     }
-    public function create()
+    public function create(Request $request)
     {
         // dd($request->all()); 
         $newgstr2a = new gstr2a([

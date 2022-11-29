@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\API;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Teamleaders;
@@ -28,7 +29,7 @@ class TeamleadersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newTeamleaders = new Teamleaders([
 			

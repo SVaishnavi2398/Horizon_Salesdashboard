@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\InvoiceMulti;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use Illuminate\Http\Request;
 
 class InvoiceMultiController extends Controller
@@ -26,7 +27,7 @@ class InvoiceMultiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newInvoiceMulti = new InvoiceMulti([
 			

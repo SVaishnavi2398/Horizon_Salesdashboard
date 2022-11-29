@@ -4,7 +4,8 @@ namespace App\Http\Controllers\API;
 use App\Models\EmpComments;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
+//use DB  
+use Illuminate\Support\Facades\DB;;
 
 class EmpCommentsController extends Controller
 {
@@ -18,7 +19,7 @@ class EmpCommentsController extends Controller
     ->get();
     return response()->json($empcomments);
   }
-  public function create()
+  public function create(Request $request)
   {
       //$newusersData = $newusers->getNewusers($request->email);
 

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\YearIncentive;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 
 class YearIncentiveController extends Controller
 {
@@ -21,7 +22,7 @@ class YearIncentiveController extends Controller
 		return response()->json($YearIncentive);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $newYearIncentive = new YearIncentive([
 			'yearsourcing_no' => $request->get('yearsourcing_no'),

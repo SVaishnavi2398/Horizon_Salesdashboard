@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\B2binvoice;
-use DB;
+// //use DB   use Illuminate\Support\Facades\DB;;
+use Illuminate\Support\Facades\DB;
 
 class B2binvoiceController extends Controller
 {
@@ -26,7 +27,7 @@ class B2binvoiceController extends Controller
        $B2binvoice =  DB::table('b2binvoices')->whereIn('inv_no', [$id])->get();
       return response()->json($B2binvoice);
     }
-    public function create()
+    public function create(Request $request)
     {
         $newb2binvoice = new B2binvoice([
           'inv_no' => $request->get('inv_no'),

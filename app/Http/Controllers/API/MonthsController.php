@@ -19,7 +19,7 @@ class MonthsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newmonths = new Months([
 			'month_name' => $request->get('month_name'),

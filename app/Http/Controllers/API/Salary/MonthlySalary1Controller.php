@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\API\Salary;
-use DB;
+//use DB   
+use Illuminate\Support\Facades\DB;;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Salary\Monthlysalary1;
@@ -25,7 +26,7 @@ class MonthlySalary1Controller extends Controller
     }
     
 
-    public function create()
+    public function create(Request $request)
     {
         $monthlysalary1 = new Monthlysalary1([
 			

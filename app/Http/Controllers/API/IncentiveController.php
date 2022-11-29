@@ -20,7 +20,7 @@ class IncentiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $newIncentive = new Incentive([
 			'ince_type' => $request->get('ince_type'),
