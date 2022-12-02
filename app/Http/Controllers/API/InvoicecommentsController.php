@@ -13,11 +13,12 @@ class InvoicecommentsController extends Controller
 
     public function index()
     {
+        return DB::all();
         // $invoicecomments = InvoiceComments::all();
-        $invoicecomments = DB::table('invoice_comments')
-                ->orderBy('updated_at','DESC')
-                ->get();
-		return response()->json($invoicecomments);
+        // $invoicecomments = DB::table('invoice_comments')
+        //         ->orderBy('updated_at','DESC')
+        //         ->get();
+		// return response()->json($invoicecomments);
     }
 
     /**

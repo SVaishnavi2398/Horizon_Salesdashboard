@@ -262,6 +262,8 @@ public function calsum($reports_id)
              //dd($reports1);
           }
          // dd($reports1);
+         $reports1 = [];
+         $result = [];
           for($i=0; $i<count($reports1); $i++){
             for($j=0; $j<count($reports1[$i]); $j++){
               $result[]=$reports1[$i][$j];
@@ -354,6 +356,8 @@ public function calsum($reports_id)
 public function generatereports($reports_id){
 
   $reports = Reports::findOrFail($reports_id);
+  return response()->json($reports);
+
   $data = response()->json($reports);
   //for select query//
  
